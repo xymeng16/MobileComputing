@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "656894687223",
+    "firebase_url": "https://myfirebasegate.firebaseio.com",
+    "project_id": "myfirebasegate",
+    "storage_bucket": "myfirebasegate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656894687223:android:2626266b93208cac",
+        "android_client_info": {
+          "package_name": "xyz.xiangyi.firebase.gate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656894687223-psmah72g52ke3gbjstoueb6v0uf26dn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsdtNpimjdtNeLejjZxAVjmJny36fwwbk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

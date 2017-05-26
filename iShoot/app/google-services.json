@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1012612121714",
+    "firebase_url": "https://ishoot-d7b5d.firebaseio.com",
+    "project_id": "ishoot-d7b5d",
+    "storage_bucket": "ishoot-d7b5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012612121714:android:8408a367fee58568",
+        "android_client_info": {
+          "package_name": "com.ishoot.ishoot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012612121714-1jkqb6phruqihgnr2tm6ckvlprp2pjg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ishoot.ishoot",
+            "certificate_hash": "5d4c147d34bd380d0b289824c6818a82ca9e49c9"
+          }
+        },
+        {
+          "client_id": "1012612121714-2t00svd52rp95iaf1l93sbv85u4gq3re.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJaiFU7kuDG9HK9J65ksmwr4C5Iu8lytA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012612121714-2t00svd52rp95iaf1l93sbv85u4gq3re.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

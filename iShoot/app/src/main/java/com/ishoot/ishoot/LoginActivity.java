@@ -17,6 +17,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,6 +27,13 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
-
+    private static final String TAG = "LoginActivity";
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -59,12 +67,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setupActionBar();
+        mAuth = FirebaseAuth.getInstance();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -82,17 +91,48 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.btn_sign_in);
+        Button mEmailSignUpButton = (Button) findViewById(R.id.btn_sign_up);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
             }
         });
+        mEmailSignUpButton.setOnClickListener((view) -> {
+            String email = mEmailView.getText().toString();
+            String password = mPasswordView.getText().toString();
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "createUserWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                // TODO: updateUI(user);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                // TODO: updateUI(null);
+                            }
 
+                            // ...
+                        }
+                    });
+        });
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        // TODO: updateUI(currentUser);
+    }
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;

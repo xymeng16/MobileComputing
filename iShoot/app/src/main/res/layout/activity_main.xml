@@ -7,27 +7,62 @@
     android:layout_height="match_parent"
     tools:context="com.ishoot.ishoot.MainActivity">
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_home"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="8dp"
+        android:fadingEdge="none"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="0dp"
+        <TextView
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+
+            android:background="@color/colorPrimary"
+            android:fontFamily="cursive"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textColor="@color/colorBackground"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        android:background="?android:attr/windowBackground"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/colorLightBackground"></View>
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground"
+            android:fadingEdge="horizontal|vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/navigation" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

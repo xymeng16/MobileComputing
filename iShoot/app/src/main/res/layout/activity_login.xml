@@ -157,8 +157,8 @@
         <TextView
             android:id="@+id/txt_sign_in_with"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="@string/sign_in_with"
             android:textAlignment="center"

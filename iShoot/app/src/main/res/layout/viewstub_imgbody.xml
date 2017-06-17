@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <com.ishoot.ishoot.widgets.MultiImageView
+        android:id="@+id/multiImagView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/im_pub_no_image"
+        >
+    </com.ishoot.ishoot.widgets.MultiImageView>
+
+</LinearLayout>
